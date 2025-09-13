@@ -10,14 +10,17 @@ import com.facebook.react.ReactPackage
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 
+// importe aqui o pacote ClipboardXPackage
+import com.myclipboard.clipboardx.ClipboardXPackage
+
 class MainApplication : Application(), ReactApplication {
 
   override val reactNativeHost: ReactNativeHost =
       object : DefaultReactNativeHost(this) {
         override fun getPackages(): List<ReactPackage> =
             PackageList(this).packages.apply {
-              // Packages that cannot be autolinked yet can be added manually here, for example:
-              // add(MyReactNativePackage())
+              // adicione o pacote ClipboardXPackage manualmente
+              add(ClipboardXPackage())
             }
 
         override fun getJSMainModuleName(): String = "index"
