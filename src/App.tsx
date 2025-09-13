@@ -23,7 +23,10 @@ function App() {
 
 function AppContent() {
   return (
-    <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom']}>
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: '#fff' }}
+      edges={['top', 'bottom']}
+    >
       <HomeScreen />
     </SafeAreaView>
   );

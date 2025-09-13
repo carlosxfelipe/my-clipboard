@@ -1,5 +1,12 @@
 import React, { useCallback, useState } from 'react';
-import { Alert, StyleSheet, Text, View, Pressable } from 'react-native';
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  Platform,
+} from 'react-native';
 import ClipboardX from '../native/ClipboardX';
 
 function generatePixKey(): string {
@@ -55,9 +62,11 @@ export default function HomeScreen() {
   );
 }
 
+const mono = Platform.select({ ios: 'Menlo', android: 'monospace' });
+
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, gap: 16 },
-  title: { fontSize: 18, fontWeight: '600', color: '#111' },
+  container: { flex: 1, padding: 16, gap: 16, backgroundColor: '#fff' },
+  title: { fontSize: 18, fontWeight: '600', color: '#000' },
   keyBox: {
     padding: 12,
     borderRadius: 8,
@@ -65,13 +74,13 @@ const styles = StyleSheet.create({
     borderColor: '#e2e2e2',
     backgroundColor: '#fafafa',
   },
-  keyText: { fontSize: 16, color: '#222', fontFamily: 'monospace' },
+  keyText: { fontSize: 16, color: '#000', fontFamily: mono },
   actions: { flexDirection: 'row', gap: 12 },
   button: {
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: 10,
-    backgroundColor: '#111',
+    backgroundColor: '#000',
   },
   secondaryButton: {
     paddingVertical: 12,
@@ -83,5 +92,5 @@ const styles = StyleSheet.create({
   },
   buttonPressed: { opacity: 0.85 },
   buttonText: { color: '#fff', fontWeight: '600' },
-  secondaryButtonText: { color: '#111', fontWeight: '600' },
+  secondaryButtonText: { color: '#000', fontWeight: '600' },
 });
